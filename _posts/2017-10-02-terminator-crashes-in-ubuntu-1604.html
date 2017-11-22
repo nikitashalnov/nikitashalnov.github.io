@@ -1,0 +1,13 @@
+---
+layout: post
+title: Terminator crashes in Ubuntu 16.04
+date: '2017-10-02T08:22:00.003-07:00'
+author: Simple Pleasure
+tags:
+- english version
+modified_time: '2017-10-19T10:03:47.764-07:00'
+blogger_id: tag:blogger.com,1999:blog-1992588495677931791.post-733554919282062771
+blogger_orig_url: http://linuxmates.blogspot.com/2017/10/terminator-crashes-in-ubuntu-1604.html
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on">There is one solution, that helped me. You must install terminator from nightly repo. The full instruction is below.<br />Spoiler: after installing of new version most of your settings, which are responsible for how the terminator looks, will be changed.<br /><br />1. Add the repo and update apt cache:<br />sudo add-apt-repository ppa:gnome-terminator/nightly-gtk3<br />sudo apt-get update<br /><br />2. Install new version of terminator<br /><pre class="brush: js">apt-cache policy terminator<br /><br />terminator:<br /><br />&nbsp; Installed: .98-1 500<br /><br />&nbsp; Candidate: 1.91-0~1779~ubuntu16.04.1<br /><br />&nbsp; Version table:<br /><br />&nbsp; &nbsp; &nbsp; &nbsp; 1.91-0~1779~ubuntu16.04.1 500<br /><br />&nbsp; &nbsp; &nbsp; &nbsp; 500 http://ppa.launchpad.net/gnome-terminator/nightly-gtk3/ubuntu xenial/main amd64 Packages<br /><br />&nbsp; &nbsp; &nbsp; &nbsp; 500 http://ppa.launchpad.net/gnome-terminator/nightly-gtk3/ubuntu xenial/main i386 Packages<br /><br />&nbsp; &nbsp; &nbsp; &nbsp; 100 /var/lib/dpkg/status<br /><br />&nbsp;*** 0.98-1 500<br /><br />&nbsp; &nbsp; &nbsp; &nbsp; 500 http://ru.archive.ubuntu.com/ubuntu xenial/universe amd64 Packages<br /><br />&nbsp; &nbsp; &nbsp; &nbsp; 500 http://ru.archive.ubuntu.com/ubuntu xenial/universe i386 Packages<br /></pre><br /><br />apt-get install terminator<br /><br />3. Close all terminator windows and relaunch the app<br /><br />That's all. But you can see, that something changed. Colors of fonts, font, font size, color scheme, title bar name and so on.&nbsp;&nbsp;</div>
