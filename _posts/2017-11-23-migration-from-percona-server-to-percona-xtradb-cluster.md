@@ -5,6 +5,7 @@ author: Nikita Shalnov
 tags:
 - howto
 - english version
+draft: true
 ---
 
 Today I want to tell you how to migrate from MySQL Percona Server 5.6 to Percona Xtradb Cluster.
