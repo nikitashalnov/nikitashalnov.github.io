@@ -1,5 +1,16 @@
 
-.highlight {
+//.highlight {
+//  background-color: #efefef;
+//  padding: 7px 7px 7px 10px;
+//  border: 1px solid #ddd;
+//  -moz-box-shadow: 3px 3px rgba(0,0,0,0.1);
+//  -webkit-box-shadow: 3px 3px rgba(0,0,0,0.1);
+//  box-shadow: 3px 3px rgba(0,0,0,0.1);
+//  margin: 20px 0 20px 0;
+//  overflow: scroll;
+//}
+
+.highlight pre {
   background-color: #efefef;
   padding: 7px 7px 7px 10px;
   border: 1px solid #ddd;
@@ -8,13 +19,6 @@
   box-shadow: 3px 3px rgba(0,0,0,0.1);
   margin: 20px 0 20px 0;
   overflow: scroll;
-}
-
-pre {
-    display: block;
-    font-family: monospace;
-    white-space: pre;
-    margin: 1em 0;
 }
 
 code {
