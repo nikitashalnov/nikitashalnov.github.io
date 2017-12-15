@@ -10,6 +10,13 @@
   overflow: scroll;
 }
 
+pre {
+    display: block;
+    font-family: monospace;
+    white-space: pre;
+    margin: 1em 0;
+}
+
 code {
   font-family:'Bitstream Vera Sans Mono','Courier', monospace;
 }
