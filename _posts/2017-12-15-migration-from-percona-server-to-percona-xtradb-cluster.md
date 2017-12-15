@@ -36,7 +36,7 @@ Before all works please shure that your replication works fine and the data real
 mysql -u root -e 'show slave status\G;'
 ```
 
-1. Update a slave to xtradb node
+### Update a slave to xtradb node
 
 ```bash
 systemctl stop mysql
@@ -126,7 +126,7 @@ mysql@node2> FLUSH PRIVILEGES;
 
 Our ex-slave now is fully ready.
 
-3. Configure Galera Arbitrator on a third node (node3) and join it in cluster with node2
+### Configure Galera Arbitrator on a third node (node3) and join it in cluster with node2
 
 To decrease possibly cluster latency due to disk I/O and network latency the node3 will be set as a Galera Arbitrator.
 Install percona-xtradb-cluster-garbd-5.7:
@@ -172,7 +172,7 @@ service garbd start
 
 At this point we have two nodes in xtradb cluster (node2 and node3). node2 is also still a slave of master node1. node3 at the same time has no data and is just an arbitrator.
 
-4. Check that wsrep works
+### Check that wsrep works
 
 Now we should check that xtradb cluster works, consists of two nodes and node1 still receive any updates from master.
 I recommend you to use an autility named ![myq_gadgets](https://github.com/jayjanssen/myq_gadgets). Running `./myq_status wsrep` we can see some useful info like this:
@@ -193,11 +193,11 @@ This is a useful tool, which is good described in ![Percona blog](https://www.pe
 
 In addition, it is very important to look into the logs (depends on your mysql configuration it may be anywhere but often they are placed in /var/log/mysql/error.log). This log is **really** informative and useful. Don't forget it.
 
-5. Shutdown an application targeting on master mysql node
+### Shutdown an application targeting on master mysql node
 
 Now you need to shutdown an application, that writes into master node.
 
-6. Monitor a replication lag, wait until it disappears.
+### Monitor a replication lag, wait until it disappears.
 
 To guarantee, that the slave has consistent and latest data we need to be sure, that there is NO replication lag.
 
@@ -221,7 +221,7 @@ Empty set (0.00 sec)
 ```
 An empty set means there is no difference.
 
-7. Stop and reset slave node (node2)
+### Stop and reset slave node (node2)
 
 Disable the replication:
 ```sql
@@ -229,11 +229,11 @@ node2> slave stop;
 node2> reset slave;
 ```
 
-8. Point the application to node2
+### Point the application to node2
 
 Change app config, now "master" is node2.
 
-9. Update the former master to xtradb node
+### Update the former master to xtradb node
 
 The process doesn't different from the process of upgrading node2.
 - Remove packages percona-server*
@@ -255,7 +255,7 @@ wsrep_sst_method = xtrabackup-v2
 ```
 I changed **wsrep_cluster_address**, **wsrep_node_address** and **wsrep_node_name**.
 
-10. Join node1 into cluster
+### Join node1 into cluster
 
 This item of the action plan can be difficult.
 - Start mysql
