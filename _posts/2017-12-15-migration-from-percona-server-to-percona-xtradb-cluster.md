@@ -120,7 +120,7 @@ To create the user execute following SQL-commands:
 
 ```sql
 mysql@node2> CREATE USER 'sstuser'@'localhost' IDENTIFIED BY 'secret';
-mysql@node2> GRANT PROCESS, RELOAD, LOCK TABLES, REPLICATION CLIENT ON *.* TO 'sst'@'localhost';
+mysql@node2> GRANT PROCESS, RELOAD, LOCK TABLES, REPLICATION CLIENT ON *.* TO 'sstuser'@'localhost';
 mysql@node2> FLUSH PRIVILEGES;
 ```
 
